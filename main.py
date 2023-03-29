@@ -105,10 +105,10 @@ if __name__=="__main__":
     # https: // eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=1
 
     publisher_pub = pubsub_v1.PublisherClient()
-    topic_path = 'projects/springer-nature-analytics/topics/pubmed_to_bigquery'
+    topic_path = 'projects/ri-data-engineering-dd4c0eca/topics/pubmed_to_bigquery'
 
-    links =['ftp://ftp.ncbi.nlm.nih.gov/pubmed/updatefiles/']
-    #links = ['ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/']
+    #links =['ftp://ftp.ncbi.nlm.nih.gov/pubmed/updatefiles/']
+    links = ['ftp://ftp.ncbi.nlm.nih.gov/pubmed/baseline/']
     for link in links:
         with urllib.request.urlopen(link) as k:
             html_ = k.read()
