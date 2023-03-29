@@ -1,0 +1,16 @@
+steps:
+- name: 'python:3.9-slim-buster'
+  args:
+    - bash
+    - -c
+    - |
+      apt-get update
+      apt-get install -y python3-dev default-libmysqlclient-dev build-essential
+      apt-get install -y wget gzip
+      gcloud source repos clone pubmed --project=springer-nature-analytics
+      cd pubmed
+      pip3 install -r requirements.txt
+      python3 main.py
+options:
+ machineType: 'E2_HIGHCPU_8'
+ diskSizeGb: '10'
